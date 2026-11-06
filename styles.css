@@ -1,0 +1,241 @@
+/* Volta — Al-Ittihad fan site
+   Palette: club yellow + true black, with rawshan teak from old Jeddah's wooden windows. */
+:root {
+  --yellow: #F5C400;
+  --yellow-deep: #E0B000;
+  --black: #000000;
+  --paper: #FFFFFF;
+  --teak: #6B4423;
+  --stone: #F3F0EA;
+  --muted: #4A4A4A;
+
+  --display-latin: "Big Shoulders Display", "Arial Narrow", sans-serif;
+  --display-ar: "Reem Kufi", "IBM Plex Sans Arabic", sans-serif;
+  --body-latin: "IBM Plex Sans", system-ui, sans-serif;
+  --body-ar: "IBM Plex Sans Arabic", system-ui, sans-serif;
+
+  --display: var(--display-ar);
+  --body: var(--body-ar);
+  --gutter: clamp(16px, 4vw, 48px);
+}
+html[lang="en"] { --display: var(--display-latin); --body: var(--body-latin); }
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--black);
+  font-family: var(--body);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+html[lang="en"] body { line-height: 1.6; }
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid var(--black); outline-offset: 3px; }
+.hero :focus-visible, .bar :focus-visible { outline-color: var(--black); }
+
+.skip {
+  position: absolute; inset-inline-start: 8px; top: -60px;
+  background: var(--black); color: var(--yellow); padding: 8px 14px; z-index: 20;
+}
+.skip:focus { top: 8px; }
+
+.wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--gutter); }
+
+/* ---------- header ---------- */
+.bar {
+  position: sticky; top: 0; z-index: 10;
+  display: flex; align-items: center; gap: 24px;
+  padding: 12px var(--gutter);
+  background: var(--yellow);
+  border-bottom: 3px solid var(--black);
+}
+.mark {
+  font-family: var(--display-latin); font-weight: 900; font-size: 1.6rem;
+  letter-spacing: 0.04em; line-height: 1;
+}
+.bar nav { display: flex; gap: 20px; margin-inline-start: auto; }
+.bar nav a { text-decoration: none; font-weight: 600; font-size: 0.95rem; }
+.bar nav a:hover { text-decoration: underline; text-underline-offset: 4px; }
+.lang {
+  font: 600 0.95rem var(--body-ar);
+  background: var(--black); color: var(--yellow);
+  border: 0; padding: 8px 16px; cursor: pointer;
+}
+html[lang="ar"] .lang { font-family: var(--body-latin); }
+.lang:hover { background: #222; }
+
+/* ---------- hero: the year over kit stripes ---------- */
+.hero {
+  position: relative; overflow: hidden;
+  background: var(--yellow);
+  min-height: min(88vh, 820px);
+  display: grid; align-items: end;
+}
+.stripes {
+  position: absolute; inset: 0;
+  background: repeating-linear-gradient(90deg,
+    var(--yellow) 0 64px, var(--black) 64px 128px);
+  opacity: 0.09;
+}
+.hero-inner {
+  position: relative; max-width: 1120px; width: 100%;
+  margin: 0 auto; padding: 0 var(--gutter) clamp(40px, 7vw, 88px);
+}
+.year {
+  margin: 0;
+  font-family: var(--display); font-weight: 900;
+  font-size: clamp(7rem, 30vw, 22rem);
+  line-height: 0.82;
+  letter-spacing: -0.02em;
+  color: var(--black);
+}
+html[lang="ar"] .year { font-weight: 700; line-height: 1; }
+.hero h1 {
+  margin: 0.25em 0 0.3em;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(2rem, 5vw, 3.5rem); line-height: 1.1;
+}
+html[lang="en"] .hero h1 { text-transform: none; letter-spacing: 0.01em; }
+.lead { max-width: 60ch; margin: 0 0 28px; font-size: 1.15rem; }
+.cta {
+  display: inline-block; text-decoration: none; font-weight: 600;
+  background: var(--black); color: var(--yellow);
+  padding: 14px 24px;
+}
+.cta:hover { background: #222; }
+
+/* one orchestrated entrance: the year rises once */
+@media (prefers-reduced-motion: no-preference) {
+  .year { animation: rise 900ms cubic-bezier(.2,.7,.2,1) both; }
+  @keyframes rise { from { transform: translateY(18%); opacity: 0; } to { transform: none; opacity: 1; } }
+}
+
+/* ---------- rawshan lattice divider ---------- */
+.rawshan {
+  height: 44px;
+  background-color: var(--teak);
+  background-image:
+    linear-gradient(45deg, transparent 46%, rgba(255,255,255,.22) 46% 54%, transparent 54%),
+    linear-gradient(-45deg, transparent 46%, rgba(255,255,255,.22) 46% 54%, transparent 54%);
+  background-size: 22px 22px;
+  border-block: 3px solid var(--black);
+}
+
+/* ---------- sections ---------- */
+section { padding: clamp(56px, 9vw, 112px) 0; }
+h2 {
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(1.9rem, 4vw, 3rem); line-height: 1.15;
+  margin: 0 0 0.6em;
+}
+html[lang="en"] h2 { font-weight: 900; letter-spacing: 0.01em; }
+
+.two { display: grid; grid-template-columns: 1.6fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: start; }
+.story p { max-width: 62ch; margin: 0 0 1em; }
+.meaning {
+  border-inline-start: 6px solid var(--yellow);
+  padding-inline-start: 24px;
+  margin-top: 0.6em;
+}
+.meaning-label { margin: 0; color: var(--muted); font-size: 0.95rem; }
+.meaning-text {
+  margin: 0.2em 0 0;
+  font-family: var(--display); font-weight: 700;
+  font-size: clamp(2rem, 4vw, 2.8rem); line-height: 1.15;
+}
+
+.founders { background: var(--stone); }
+.note { color: var(--muted); margin: -0.4em 0 1.6em; }
+.names {
+  list-style: none; margin: 0; padding: 0;
+  display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  border-top: 2px solid var(--black);
+}
+.names li {
+  padding: 18px 4px;
+  border-bottom: 1px solid rgba(0,0,0,.18);
+  font-size: 1.2rem; font-weight: 600;
+}
+
+/* timeline: a real sequence, so years lead each row */
+.line { list-style: none; margin: 0; padding: 0; position: relative; }
+.line::before {
+  content: ""; position: absolute; top: 8px; bottom: 8px;
+  inset-inline-start: 7.5rem; width: 3px; background: var(--yellow);
+}
+.line li {
+  display: grid; grid-template-columns: 7.5rem 1fr; gap: 32px;
+  padding: 14px 0; position: relative;
+}
+.line li::after {
+  content: ""; position: absolute; top: 24px;
+  inset-inline-start: calc(7.5rem - 6px);
+  width: 15px; height: 15px; background: var(--black); border: 3px solid var(--yellow);
+}
+.line .y {
+  font-family: var(--display); font-weight: 700; font-size: 1.5rem; line-height: 1.3;
+  font-variant-numeric: tabular-nums;
+}
+html[lang="en"] .line .y { font-weight: 900; }
+.line .t { max-width: 58ch; padding-inline-start: 12px; }
+
+/* grounds */
+.homes { background: var(--black); color: var(--paper); }
+.grounds { display: grid; grid-template-columns: 1.4fr 1fr; gap: 24px; }
+.ground { margin: 0; }
+.ground a { display: block; text-decoration: none; }
+.ground .ph {
+  aspect-ratio: 4 / 3; overflow: hidden;
+  background:
+    repeating-linear-gradient(90deg, #1a1a1a 0 40px, #000 40px 80px);
+  border: 3px solid var(--yellow);
+}
+.ground:first-child .ph { aspect-ratio: 16 / 10; }
+.ground img { width: 100%; height: 100%; object-fit: cover; }
+.ground figcaption { margin-top: 14px; }
+.ground strong { display: block; font-size: 1.2rem; color: var(--yellow); }
+.ground span { color: #d6d6d6; }
+
+/* honours tally */
+.honours { background: var(--yellow); }
+.tally { display: grid; grid-template-columns: repeat(4, 1fr); margin: 0; border-top: 3px solid var(--black); }
+.tally div { padding: 24px 16px 8px 0; border-inline-end: 1px solid rgba(0,0,0,.25); }
+html[dir="rtl"] .tally div { padding: 24px 0 8px 16px; }
+.tally div:last-child { border-inline-end: 0; }
+.tally dt {
+  font-family: var(--display-latin); font-weight: 900;
+  font-size: clamp(3.5rem, 8vw, 6rem); line-height: 1;
+}
+html[lang="ar"] .tally dt { font-family: var(--display-ar); font-weight: 700; }
+.tally dd { margin: 8px 0 0; font-weight: 600; max-width: 18ch; }
+
+/* footer */
+.foot { background: var(--black); color: #e8e8e8; padding: 48px 0 64px; font-size: 0.95rem; }
+.disclaimer {
+  color: var(--yellow); font-weight: 600; margin: 0 0 32px;
+  padding-bottom: 24px; border-bottom: 1px solid #333;
+}
+.foot-cols { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+.foot h3 { font-size: 1rem; margin: 0 0 8px; color: var(--paper); }
+.foot ul { margin: 0; padding-inline-start: 1.1em; }
+.foot a { color: #e8e8e8; }
+
+/* ---------- responsive ---------- */
+@media (max-width: 860px) {
+  .bar nav { display: none; }
+  .lang { margin-inline-start: auto; }
+  .two, .grounds, .foot-cols { grid-template-columns: 1fr; }
+  .tally { grid-template-columns: 1fr 1fr; }
+  .tally div:nth-child(2) { border-inline-end: 0; }
+  .line::before { inset-inline-start: 4.5rem; }
+  .line li { grid-template-columns: 4.5rem 1fr; gap: 20px; }
+  .line li::after { inset-inline-start: calc(4.5rem - 6px); }
+  .line .y { font-size: 1.15rem; }
+}
+@media (max-width: 420px) {
+  .line .y { font-size: 1rem; }
+}
