@@ -17,7 +17,7 @@ No build step: open `index.html` in a browser, or deploy the folder as a static 
 
 ## Photos
 
-Stadium photos load from Wikimedia Commons, which hosts only freely licensed media. Each photo on the site links to its Commons file page, where the author and licence are shown. If a photo fails to load, its frame shows the black-stripe pattern instead.
+Stadium photos come from Wikimedia Commons, which hosts only freely licensed media, and are served from the Wix site's media library. Each photo on the site links to its Commons file page, where the author and licence are shown. If a photo fails to load, its frame shows the black-stripe pattern instead.
 
 ## Sources
 

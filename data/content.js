@@ -148,11 +148,11 @@ window.VOLTA_CONTENT = {
 
   images: [
     {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/King_Abdullah_Sports_City_(Jeddah).jpg?width=1600",
+      src: "https://static.wixstatic.com/media/b95efd_9d3c0118f100497a8b8a0aa1393fa158~mv2.jpg",
       page: "https://commons.wikimedia.org/wiki/File:King_Abdullah_Sports_City_(Jeddah).jpg"
     },
     {
-      src: "https://commons.wikimedia.org/wiki/Special:FilePath/Prince_Abdullah_Al-Faisal_Sports_City.jpg?width=1600",
+      src: "https://static.wixstatic.com/media/b95efd_ecdab2a6541b453ba59a1911d4324e9c~mv2.jpg",
       page: "https://commons.wikimedia.org/wiki/File:Prince_Abdullah_Al-Faisal_Sports_City.jpg"
     }
   ],
